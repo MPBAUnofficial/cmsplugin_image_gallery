@@ -1,0 +1,44 @@
+{% load thumbnail %}
+
+<div class="gallery" id="cmspluginGallery{{ gallery.pk }}">
+	{% for image in images %}
+		<div>
+            {% if image.link_url %}
+                <a href="{{image.link_url}}">
+            {% endif %}
+
+            {% if image.src %}
+			    <img src="{% thumbnail image.src 115x80 crop %}" alt="{{ image.alt }}" title="{{ image.title }}" rel="#cmspluginGalleryImage{{ image.pk }}" />
+            {% else %}
+                <img src="{{ image.image_url }}" alt="{{ image.alt }}" title="{{ image.title }}" rel="#cmspluginGalleryImage{{ image.pk }}" style="height: 300px; width: 400px"/>
+            {% endif %}
+
+            {% if image.link_url %}
+                </a>
+            {% endif %}
+
+		</div>
+	{% endfor %}
+</div>
+
+{% for image in images %}
+<div class="simple_overlay" id="cmspluginGalleryImage{{ image.pk }}">
+    {% if image.link_url %}
+        <a href="{{image.link_url}}">
+    {% endif %}
+
+    {% if image.src %}
+	    <img src="{{ image.src.url }}"/>
+    {% else %}
+        <img src="{{ image.image_url }}"/>
+    {% endif %}
+
+    {% if image.link_url %}
+        </a>
+    {% endif %}
+</div>
+{% endfor %}
+
+<script type="text/javascript">
+	jQuery('#cmspluginGallery{{ gallery.pk }} img').overlay();
+</script>

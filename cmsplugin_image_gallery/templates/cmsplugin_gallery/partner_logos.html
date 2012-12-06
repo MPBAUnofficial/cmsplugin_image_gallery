@@ -1,0 +1,45 @@
+{% load sekizai_tags %}
+
+{% load thumbnail %}
+<ul class="logo">
+  {% for image in images %}
+  <li>
+    {% if image.link_url %}
+        <a href="{{image.link_url}}" >
+    {% endif %}
+    {% if image.src %}
+        <img class="image_logo" 
+            src="{% thumbnail image.src 0x48 crop %}" 
+            alt="{{ image.alt }}" 
+            title="{{ image.title }}" />
+    {% else %} 
+        <img class="image_logo"
+            src="{{ image.image_url }}"
+            alt="{{ image.alt }}" 
+            title="{{ image.title }}" />
+    {% endif %}
+    {% if image.link_url %}
+        </a>
+    {% endif %}
+  </li>
+  {% endfor %}
+</ul>
+
+
+{% addtoblock "css" %}
+<style type="text/css"> 
+
+img.image_logo {
+    height: 48px;
+}
+
+
+ul.logo li {
+    float: left;
+    list-style: none outside none;
+    margin-left: 7px;
+    line-height: 10px;
+}
+
+</style>
+{% endaddtoblock %}

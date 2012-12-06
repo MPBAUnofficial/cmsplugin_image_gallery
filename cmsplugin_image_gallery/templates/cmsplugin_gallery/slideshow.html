@@ -1,0 +1,124 @@
+{% load sekizai_tags thumbnail %}
+
+
+{% if images|length > 0 %}
+    <div class="portfolio-slides">
+        {% if images|length == 1 %}
+            <div class="image_gallery_no_slide_div">
+                <div class="image_gallery_center_slide">
+                    {% with images|first as image %}
+                        {% if image.link_url %}
+                            <a class="image_slideshow_link" href="{{image.link_url}}">
+                        {% endif %}
+                        {% if image.src %}
+                            <img class ="image_slideshow_link" 
+                                 src="{% thumbnail image.src 400x300%}"
+                                 alt="{{ image.alt }}" 
+                                 title="{{ image.title }}" />
+                        {% else %} 
+                            <img class ="image_slideshow_link" 
+                                 src="{{image.image_url}}"
+                                 alt="{{ image.alt }}" 
+                                 title="{{ image.title }}" />
+                        {% endif %}
+                        {% if image.link_url %}
+                            </a>
+                        {% endif %}
+                    {% endwith %}
+                </div>
+            </div>
+        {% else %}
+            {% for image in images %}
+                <div class="image_gallery_slide_div">
+                    <div class="image_gallery_center_slide">
+                        {% if image.link_url %}
+                            <a class="image_slideshow_link" href="{{image.link_url}}">
+                        {% endif %}
+                        {% if image.src %}
+                            <img class ="image_slideshow_link" 
+                                 src="{% thumbnail image.src 400x300%}"
+                                 alt="{{ image.alt }}" 
+                                 title="{{ image.title }}" />
+                        {% else %} 
+                            <img class ="image_slideshow_link" 
+                                 src="{{image.image_url}}"
+                                 alt="{{ image.alt }}" 
+                                 title="{{ image.title }}" />
+                        {% endif %}
+                        {% if image.link_url %}
+                            </a>
+                        {% endif %}
+                    </div>
+                </div>
+            {% endfor %}
+        {% endif %}
+    </div>
+{% endif %}
+
+{% if images|length > 1 %}
+    {% addtoblock "js" %}
+    <script type="text/javascript" src="{{STATIC_URL}}js/jquery-180.js"></script>
+    {% endaddtoblock %}
+
+    {% addtoblock "js" %}
+    <script type="text/javascript" src="{{STATIC_URL}}js/jquery-cycle.js"></script>
+    {% endaddtoblock %}
+
+
+    
+    {% addtoblock "js" %}
+    <script type="text/javascript">
+    $(document).ready(function() {
+        $('.portfolio-slides').cycle({
+            fx: 'fade' // choose your transition type, ex: fade, scrollUp, shuffle, etc...
+        });
+    });
+    </script>
+    {% endaddtoblock %}
+
+{% endif%}
+
+{% addtoblock "css" %}
+<style type="text/css"> 
+
+div.portfolio-slides {
+    clear:both;
+    position: relative; 
+    min-width: 400px; 
+    min-height: 300px;
+}
+
+div.portfolio-slides div.image_gallery_no_slide_div {
+    height: 300px; 
+    width: 400px;
+}
+
+div.portfolio-slides div.image_gallery_slide_div {
+    position: absolute; 
+    top:0px; 
+    left:0px; 
+    display: none; 
+    z-index: 0; 
+    opacity: 1; 
+    height: 300px; 
+    width: 400px;
+}
+
+div.image_gallery_center_slide {
+    display:table-cell;
+    height: 300px;
+    width: 400px;
+    vertical-align:middle;
+}
+
+div.image_gallery_center_slide img.image_slideshow_link {
+    float: none;
+    display: block;
+    margin: auto;
+    max-height: 300px; 
+    max-width: 400px;
+}
+
+</style>
+{% endaddtoblock %}
+

@@ -1,0 +1,87 @@
+# SOME DESCRIPTIVE TITLE.
+# Copyright (C) YEAR THE PACKAGE'S COPYRIGHT HOLDER
+# This file is distributed under the same license as the PACKAGE package.
+# FIRST AUTHOR <EMAIL@ADDRESS>, YEAR.
+#
+#, fuzzy
+msgid ""
+msgstr ""
+"Project-Id-Version: PACKAGE VERSION\n"
+"Report-Msgid-Bugs-To: \n"
+"POT-Creation-Date: 2012-11-09 10:39+0100\n"
+"PO-Revision-Date: YEAR-MO-DA HO:MI+ZONE\n"
+"Last-Translator: FULL NAME <EMAIL@ADDRESS>\n"
+"Language-Team: LANGUAGE <LL@li.org>\n"
+"Language: \n"
+"MIME-Version: 1.0\n"
+"Content-Type: text/plain; charset=UTF-8\n"
+"Content-Transfer-Encoding: 8bit\n"
+"Plural-Forms: nplurals=2; plural=(n != 1)\n"
+
+#: admin.py:10 models.py:52
+msgid "image"
+msgstr "immagine"
+
+#: cms_plugins.py:13
+msgid "Image gallery"
+msgstr "Galleria immagini"
+
+#: forms.py:13
+msgid "Change:"
+msgstr "Cambia"
+
+#: models.py:36
+#, python-format
+msgid "%(count)d image(s) in gallery"
+msgstr "%(count)d immagine/i"
+
+#: models.py:46
+msgid "gallery"
+msgstr "galleria"
+
+#: models.py:56
+msgid "alternative image url"
+msgstr "URL alternativa"
+
+#: models.py:64
+msgid "link url"
+msgstr "url collegamento"
+
+#: models.py:69
+msgid "url used when user click on the image"
+msgstr "url utilizzata quando l'utente clicca sull'immagine"
+
+#: models.py:73
+msgid "image height"
+msgstr "altezza immagine"
+
+#: models.py:79
+msgid "image width"
+msgstr "larghezza immagine"
+
+#: models.py:85
+msgid "title"
+msgstr "titolo"
+
+#: models.py:91
+msgid "alt text"
+msgstr "testo sostitutivo"
+
+#: models.py:97
+msgid ""
+"Image not specified, use image or alternative url to specify the image source"
+msgstr ""
+"Immagine non specificata, utilizzare i campi immagine o URL alternativa per "
+"specificare un immagine"
+
+#: models.py:105
+msgid "Inline ordering position"
+msgstr "Ordine immagine"
+
+#: models.py:106
+msgid "Image"
+msgstr "immagine"
+
+#: models.py:107
+msgid "Images"
+msgstr "immagini"
